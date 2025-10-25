@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <memory>
-#include "animal/Dog.h"
+#include "Dog.h"
 
 auto main() -> int {
 
