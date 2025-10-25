@@ -117,3 +117,17 @@ endfunction()
 message("VAR is ${VAR}")
 OutFunc()
 message("VAR is ${VAR}")
+
+
+message("----- macro ----")
+
+
+macro(Inilizate myVar)
+    set(${myVar} "new value")  # 不加 PARENT_SCOPE
+    message("inside macro: ${myVar}")
+endmacro()
+
+# Inilizate 做初始化相关的动作
+#set(my_value "")
+Inilizate(my_value)
+message("my_value is ${my_value}")  # 输出 "new value"
