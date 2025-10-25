@@ -132,6 +132,7 @@ Inilizate(my_value)
 message("my_value is ${my_value}")  # 输出 "new value"
 
 
-include(animal/animal.cmake)
+#include(animal/animal.cmake)
+add_subdirectory(animal)
 
 add_executable(Hello hello.cpp ${animal_srcs})
