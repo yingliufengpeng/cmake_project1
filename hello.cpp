@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include "Dog.h"
+#include "Cat.h"
 
 auto main() -> int {
 
@@ -14,5 +15,8 @@ auto main() -> int {
     dog -> show();
     dog->reset();
     dog->show();
+
+    auto cat = std::make_unique<peng::Cat>(33, 4);
+    cat->show();
     return 0;
 }
