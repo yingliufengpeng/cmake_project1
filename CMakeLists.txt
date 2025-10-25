@@ -5,7 +5,6 @@ set(USE_DEBUG  "on")
 
 message("CMake Version is ${CMAKE_VERSION} --- ${USE_DEBUG}")
 
-add_executable(Hello hello.cpp)
 set(USE_DEBUG "off")
 message("CMake Version is ${CMAKE_VERSION} --- ${USE_DEBUG}")
 
@@ -131,3 +130,6 @@ endmacro()
 #set(my_value "")
 Inilizate(my_value)
 message("my_value is ${my_value}")  # 输出 "new value"
+
+
+add_executable(Hello hello.cpp animal/Dog.cpp animal/Dog.h)
