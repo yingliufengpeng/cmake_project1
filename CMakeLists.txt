@@ -135,10 +135,12 @@ message("my_value is ${my_value}")  # 输出 "new value"
 #include(animal/animal.cmake)
 add_subdirectory(animal)
 add_subdirectory(animal2)
+add_subdirectory(person)
 
 add_executable(Hello hello.cpp )
 
 target_link_libraries(Hello PUBLIC AnimalLib)
 target_link_libraries(Hello PUBLIC AnimalLib2)
+target_link_libraries(Hello PUBLIC AnimalLib3)
 
 target_include_directories(Hello PUBLIC "${PROJECT_BINARY_DIR}" "${PROJECT_SOURCE_DIR}/animal" )

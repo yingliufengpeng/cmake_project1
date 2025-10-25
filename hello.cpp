@@ -6,6 +6,7 @@
 #include <memory>
 #include "Dog.h"
 #include "Cat.h"
+#include "Person.h"
 
 auto main() -> int {
 
@@ -18,5 +19,12 @@ auto main() -> int {
 
     auto cat = std::make_unique<peng::Cat>(33, 4);
     cat->show();
+
+    auto p = std::make_unique<peng::Person>("pw" , 44);
+    std::cout << *p << std::endl;
+
+    p->setName("little dog");
+    std::cout << *p << std::endl;
+
     return 0;
 }
