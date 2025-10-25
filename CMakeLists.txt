@@ -79,3 +79,21 @@ set(L2 1 2 3 4 )
 foreach (num IN ZIP_LISTS L1 L2)
     message("num is ${num_0}  --- ${num_1}")
 endforeach ()
+
+# 函数的作用域,不会修改原始的参数的数据
+function(demo1 a b)
+    message("fun_name is ${CMAKE_CURRENT_FUNCTION}")
+    message("ARGV0 ${ARGV0} ARGV1 ${ARGV1} ")
+    set(a 44)
+    set(${a} 34)
+    message("a is ${a}")
+endfunction()
+
+demo1(1 3)
+
+set(argv1 "first value")
+set(argv2 "second value")
+demo1(${argv1} ${argv2})
+
+message("argv1 is ${argv1}")
+
