@@ -7,6 +7,7 @@
 #include "Dog.h"
 #include "Cat.h"
 #include "Person.h"
+#include "config/version.h"
 
 auto main() -> int {
 
@@ -25,6 +26,9 @@ auto main() -> int {
 
     p->setName("little dog");
     std::cout << *p << std::endl;
+
+    std::cout << "Value is " << Value << std::endl;
+    std::cout << "CMAKE_CXX_STANDARD is " << CMAKE_CXX_STANDARD << std::endl;
 
     return 0;
 }

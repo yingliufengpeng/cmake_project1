@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.20)
 project(CMakeProject1)
 
+set(CMAKE_CXX_STANDARD  20)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(USE_DEBUG  "on")
+
+configure_file(config/version.h.in config/version.h)
 
 message("CMake Version is ${CMAKE_VERSION} --- ${USE_DEBUG}")
 
@@ -137,7 +141,7 @@ add_subdirectory(animal)
 add_subdirectory(animal2)
 add_subdirectory(person)
 
-add_executable(Hello hello.cpp )
+add_executable(Hello main.cpp )
 
 target_link_libraries(Hello PUBLIC AnimalLib)
 target_link_libraries(Hello PUBLIC AnimalLib2)
