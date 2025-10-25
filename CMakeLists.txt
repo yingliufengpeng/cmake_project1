@@ -97,3 +97,23 @@ demo1(${argv1} ${argv2})
 
 message("argv1 is ${argv1}")
 
+set(VAR 1)
+
+function(OutFunc)
+    message("OutFunc ...")
+    message("-- Out 1: ${VAR} ")
+    Infunc()
+    message("-- Out 2: ${VAR} ")
+
+endfunction()
+
+function(Infunc )
+    message("InFunc ...")
+    message("---> In 1: ${VAR} ")
+    set(VAR 4)
+    message("---> In 2: ${VAR}")
+endfunction()
+
+message("VAR is ${VAR}")
+OutFunc()
+message("VAR is ${VAR}")
