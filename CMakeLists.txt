@@ -4,8 +4,11 @@ project(CMakeProject1)
 set(CMAKE_CXX_STANDARD  20)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(USE_DEBUG  "on")
-
+set(P_VERSION 0.0.1)
 configure_file(config/version.h.in config/version.h)
+
+option(USE_P_MATH "Enable P_MATH functions" ON)
+message(STATUS "USE_P_MATH = ${USE_P_MATH}")
 
 message("CMake Version is ${CMAKE_VERSION} --- ${USE_DEBUG}")
 
@@ -141,7 +144,23 @@ add_subdirectory(animal)
 add_subdirectory(animal2)
 add_subdirectory(person)
 
-add_executable(Hello main.cpp )
+# 2️⃣ 根据开关设置源文件
+if (USE_P_MATH)
+    set(srcs main.cpp utils/tools.h)
+    message(STATUS "USE_P_MATH is ON")
+else ()
+    set(srcs main.cpp)
+    message(STATUS "USE_P_MATH is OFF")
+endif ()
+
+# 3️⃣ 添加可执行文件
+add_executable(Hello ${srcs})
+
+if (USE_P_MATH)
+    target_compile_definitions(Hello PRIVATE USE_P_MATH)
+
+endif ()
+
 
 target_link_libraries(Hello PUBLIC AnimalLib)
 target_link_libraries(Hello PUBLIC AnimalLib2)

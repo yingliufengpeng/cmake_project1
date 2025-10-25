@@ -1,4 +1,7 @@
+#pragma once
 
 const char* Value = "hello, world";
 
 const char* CMAKE_CXX_STANDARD = "${CMAKE_CXX_STANDARD}";
+
+#define  VERSION  "${P_VERSION}"
