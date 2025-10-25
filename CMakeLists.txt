@@ -37,3 +37,45 @@ message("port is ${port}")
 
 list(REMOVE_ITEM port p3)
 message("port is ${port}")
+
+set(USE_LOG TRUE)
+if (USE_LOG)
+    message("logging on")
+else ()
+    message("logging off")
+endif()
+
+
+if (1 LESS 2)
+    message("1 LESS 2")
+endif ()
+
+
+if ("ok" LESS 1233)
+message("ok LESS 1233")
+endif ()
+
+if (1 EQUAL "2")
+    message("1 EQUAL 2")
+endif ()
+
+if (2 EQUAL "2")
+    message("2 EQUAL 2")
+endif ()
+
+foreach (i RANGE 1 10)
+    message("i == ${i}")
+endforeach ()
+
+set(MY_LIST 1 2 3 owl git)
+
+foreach (e IN LISTS MY_LIST)
+    message("e == ${e}")
+endforeach ()
+
+set(L1 one two three four)
+set(L2 1 2 3 4 )
+
+foreach (num IN ZIP_LISTS L1 L2)
+    message("num is ${num_0}  --- ${num_1}")
+endforeach ()
