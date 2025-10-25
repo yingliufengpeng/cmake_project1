@@ -132,4 +132,6 @@ Inilizate(my_value)
 message("my_value is ${my_value}")  # 输出 "new value"
 
 
-add_executable(Hello hello.cpp animal/Dog.cpp animal/Dog.h)
+include(animal/animal.cmake)
+
+add_executable(Hello hello.cpp ${animal_srcs})
